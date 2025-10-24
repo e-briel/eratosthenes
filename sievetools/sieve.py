@@ -42,7 +42,7 @@ def sieve_fast(nmax):
     Function to compute prime numbers in a more efficient way than sieve_slow()
     
     Arguments: 
-        - nmax: integer. Upper bound for prime search.
+        - nmax: positive integer. Upper bound for prime search.
 
     Ourputs:
         - all_primes: list. List with all the prime numbers slower than nmax   
@@ -51,7 +51,15 @@ def sieve_fast(nmax):
     
     all_primes = []
 
-    if nmax == 2: 
+    if nmax == 1:
+        # return empty list if input is 1
+        return []
+
+    elif nmax < 1:
+        # if input is 0 or neg value return an error
+        raise ValueError('nmax cannot be less than 1')
+
+    elif nmax == 2: 
         all_primes = [2]
 
     else:
